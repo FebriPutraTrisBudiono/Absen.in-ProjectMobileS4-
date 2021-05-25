@@ -1,6 +1,9 @@
 Login, Profil (admin dan user) sekalian membuat template aplikasi dan Login = Bagus
+(Membuat Database dengan nama tabel user)
 
 Dashboard(user, admin), Jabatan(Admin), Anggota (Admin) = Dimas
+(Membuat Database dengan nama tabel Jabatan)
+(Membuat Database dengan nama tabel user)
 
 Absen = Febri
 
