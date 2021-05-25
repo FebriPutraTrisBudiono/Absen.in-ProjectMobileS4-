@@ -1,0 +1,11 @@
+Login, Profil (admin dan user) sekalian membuat template aplikasi dan Login = Bagus
+
+Dashboard(user, admin), Jabatan(Admin), Anggota (Admin) = Dimas
+
+Absen = Febri
+
+
+*Catatan
+
+- Template Login cari di internet
+- Template Aplikasi cari di internet
