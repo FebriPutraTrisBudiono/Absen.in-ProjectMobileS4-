@@ -1,0 +1,6 @@
+com/bagusbachtiar/simpleloginapp/BuildConfig.java
+ com.bagusbachtiar.simpleloginapp.BuildConfig
+com/bagusbachtiar/simpleloginapp/MainActivity.java
+ com.bagusbachtiar.simpleloginapp.MainActivity
+ com.bagusbachtiar.simpleloginapp.MainActivity$1
+ com.bagusbachtiar.simpleloginapp.MainActivity$1$1
