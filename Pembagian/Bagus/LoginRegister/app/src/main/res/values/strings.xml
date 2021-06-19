@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">LoginRegister</string>
+    <string name="et_name_hint">nama disini</string>
+    <string name="et_email_hint">email disini</string>
+    <string name="et_password_hint">password disini</string>
+    <string name="et_alamat_hint">alamat disini</string>
+    <string name="et_jabatan_hint">jabatan</string>
+    <string name="et_hakakses_hint">hak akses</string>
+</resources>
