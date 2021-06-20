@@ -12,7 +12,6 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.LoginRegister"
         android:usesCleartextTraffic="true">
-        <activity android:name=".EditProfile"></activity>
         <activity
             android:name=".Login"
             android:theme="@style/Theme.Design.Light.NoActionBar">
