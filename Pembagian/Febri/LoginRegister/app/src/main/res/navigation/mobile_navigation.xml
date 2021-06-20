@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@+id/nav_dashboard">
+
+    <fragment
+        android:id="@+id/nav_dashboard"
+        android:name="com.bagusbachtiar.loginregister.ui.admin.dashboard.DashboardFragment"
+        android:label="@string/menu_dashboard"
+        tools:layout="@layout/fragment_dashboard" />
+
+    <fragment
+        android:id="@+id/nav_jabatan"
+        android:name="com.bagusbachtiar.loginregister.ui.admin.jabatan.JabatanFragment"
+        android:label="@string/menu_jabatan"
+        tools:layout="@layout/fragment_jabatan" />
+
+    <fragment
+        android:id="@+id/nav_anggota"
+        android:name="com.bagusbachtiar.loginregister.ui.admin.anggota.AnggotaFragment"
+        android:label="@string/menu_anggota"
+        tools:layout="@layout/fragment_anggota" />
+
+    <fragment
+        android:id="@+id/nav_rekapabsenanggota"
+        android:name="com.bagusbachtiar.loginregister.ui.admin.rekap_absen_anggota.RekapAbsenAnggotaFragment"
+        android:label="@string/menu_rekapabsenanggota"
+        tools:layout="@layout/fragment_rekap_absen_anggota" />
+
+    <fragment
+        android:id="@+id/nav_jamkerja"
+        android:name="com.bagusbachtiar.loginregister.ui.admin.jam_kerja.JamKerjaFragment"
+        android:label="@string/menu_jamkerja"
+        tools:layout="@layout/fragment_jam_kerja" />
+</navigation>
