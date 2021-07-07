@@ -1,13 +1,13 @@
 package com.bagusbachtiar.myapplication;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ProgressBar;
 import android.widget.Toast;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.android.volley.AuthFailureError;
 import com.android.volley.Request;
@@ -20,6 +20,7 @@ import com.android.volley.toolbox.Volley;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.net.URL;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -28,7 +29,7 @@ public class RegisterActivity extends AppCompatActivity {
     private EditText name, email, password, c_password;
     private Button btn_regist;
     private ProgressBar loading;
-    private static String URL_REGIST = "http://192.168.1.2/AndroidProject/PHP/register.php";
+    private static String URL_REGIST = "http://192.168.1.4/AndroidProject02/PHP/register.php";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,9 +49,10 @@ public class RegisterActivity extends AppCompatActivity {
                 Regist();
             }
         });
+
     }
 
-    private void Regist() {
+    private void Regist(){
         loading.setVisibility(View.VISIBLE);
         btn_regist.setVisibility(View.GONE);
 
@@ -62,22 +64,21 @@ public class RegisterActivity extends AppCompatActivity {
                 new Response.Listener<String>() {
                     @Override
                     public void onResponse(String response) {
-                        try {
-                            System.out.println("hasil: " + response);
+                        try{
                             JSONObject jsonObject = new JSONObject(response);
-                            String succes = jsonObject.getString("succes");
+                            String success = jsonObject.getString("success");
 
-                            if (succes.equals("1")) {
-                                Toast.makeText(RegisterActivity.this, "Register Succes!", Toast.LENGTH_SHORT).show();
+                            if (success.equals("1")) {
+                                Toast.makeText(RegisterActivity.this, "Register Success!", Toast.LENGTH_SHORT).show();
                             }
+
 
                         } catch (JSONException e) {
                             e.printStackTrace();
                             Toast.makeText(RegisterActivity.this, "Register Error! " + e.toString(), Toast.LENGTH_SHORT).show();
-
+                            loading.setVisibility(View.GONE);
+                            btn_regist.setVisibility(View.VISIBLE);
                         }
-                        loading.setVisibility(View.GONE);
-                        btn_regist.setVisibility(View.VISIBLE);
                     }
                 },
                 new Response.ErrorListener() {
@@ -86,9 +87,10 @@ public class RegisterActivity extends AppCompatActivity {
                         Toast.makeText(RegisterActivity.this, "Register Error! " + error.toString(), Toast.LENGTH_SHORT).show();
                         loading.setVisibility(View.GONE);
                         btn_regist.setVisibility(View.VISIBLE);
-
                     }
-                }) {
+                })
+
+        {
             @Override
             protected Map<String, String> getParams() throws AuthFailureError {
                 Map<String, String> params = new HashMap<>();
@@ -104,4 +106,5 @@ public class RegisterActivity extends AppCompatActivity {
 
 
     }
+
 }

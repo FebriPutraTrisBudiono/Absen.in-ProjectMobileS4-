@@ -1,32 +1,32 @@
 <?php
 
-if ($_SERVER ['REQUEST_METHOD'] =='POST'){
+if ($_SERVER['REQUEST_METHOD'] =='POST'){
 
-  $name = $_POST['name'];
-  $email = $_POST['email'];
-  $password = $_POST['password'];
+    $name = $_POST['name'];
+    $email = $_POST['email'];
+    $password = $_POST['password'];
 
-  $password = password_hash($password, PASSWORD_DEFAULT);
+    $password = password_hash($password, PASSWORD_DEFAULT);
 
-  require_once 'connect.php';
+    require_once 'connect.php';
 
-  $sql = "INSERT INTO users_table(name, email, password) VALUES ('$name', '$email', '$password')";
-  
+    $sql = "INSERT INTO users_table (name, email, password) VALUES ('$name', '$email', '$password')";
 
-  if($res=mysqli_query($conn, $sql)){
-    $result["succes"] = "1";
-    $result["message"] = "succes";
+    if ( mysqli_query($conn, $sql) ) {
+        $result["success"] = "1";
+        $result["message"] = "success";
 
-  }else{
+        echo json_encode($result);
+        mysqli_close($conn);
 
-    $result["succes"] = "0";
-    $result["message"] = "error";
+    } else {
 
-    
-    
-  }
-  echo json_encode($result);
-  mysqli_close($conn);
+        $result["success"] = "0";
+        $result["message"] = "error";
+
+        echo json_encode($result);
+        mysqli_close($conn);
+    }
 }
 
 ?>

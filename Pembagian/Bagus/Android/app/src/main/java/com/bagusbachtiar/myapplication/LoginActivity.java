@@ -1,7 +1,5 @@
 package com.bagusbachtiar.myapplication;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -11,12 +9,13 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.appcompat.app.AppCompatActivity;
+
 import com.android.volley.AuthFailureError;
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
-import com.android.volley.toolbox.JsonArrayRequest;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 
@@ -33,7 +32,7 @@ public class LoginActivity extends AppCompatActivity {
     private Button btn_login;
     private TextView link_regist;
     private ProgressBar loading;
-    private static  String URL_LOGIN = "http://192.168.1.2/AndroidProject/PHP/login.php";
+    private static String URL_LOGIN = "http://192.168.1.4/AndroidProject02/PHP/login.php";
     SessionManager sessionManager;
 
     @Override
@@ -58,10 +57,9 @@ public class LoginActivity extends AppCompatActivity {
                 if (!mEmail.isEmpty() || !mPass.isEmpty()) {
                     Login(mEmail, mPass);
                 } else {
-                    email.setError("Please Insert email");
-                    password.setError("Please Insert Password");
+                    email.setError("Please insert email");
+                    password.setError("Please insert password");
                 }
-
             }
         });
 
@@ -74,7 +72,7 @@ public class LoginActivity extends AppCompatActivity {
 
     }
 
-    private void Login(String email, String password){
+    private void Login(final String email, final String password) {
 
         loading.setVisibility(View.VISIBLE);
         btn_login.setVisibility(View.GONE);
@@ -88,30 +86,36 @@ public class LoginActivity extends AppCompatActivity {
                             String success = jsonObject.getString("success");
                             JSONArray jsonArray = jsonObject.getJSONArray("login");
 
-                            if (success.equals("1")){
-                                for (int i = 0; i < jsonArray.length(); i++){
+                            if (success.equals("1")) {
+
+                                for (int i = 0; i < jsonArray.length(); i++) {
 
                                     JSONObject object = jsonArray.getJSONObject(i);
 
                                     String name = object.getString("name").trim();
                                     String email = object.getString("email").trim();
+                                    String id = object.getString("id").trim();
 
-                                    sessionManager.createSession(name, email);
+                                    sessionManager.createSession(name, email, id);
 
                                     Intent intent = new Intent(LoginActivity.this, HomeActivity.class);
                                     intent.putExtra("name", name);
                                     intent.putExtra("email", email);
                                     startActivity(intent);
+                                    finish();
 
                                     loading.setVisibility(View.GONE);
 
+
                                 }
+
                             }
+
                         } catch (JSONException e) {
                             e.printStackTrace();
                             loading.setVisibility(View.GONE);
                             btn_login.setVisibility(View.VISIBLE);
-                            Toast.makeText(LoginActivity.this, "Error" +e.toString(), Toast.LENGTH_SHORT).show();
+                            Toast.makeText(LoginActivity.this, "Error " +e.toString(), Toast.LENGTH_SHORT).show();
                         }
                     }
                 },
@@ -120,8 +124,7 @@ public class LoginActivity extends AppCompatActivity {
                     public void onErrorResponse(VolleyError error) {
                         loading.setVisibility(View.GONE);
                         btn_login.setVisibility(View.VISIBLE);
-                        Toast.makeText(LoginActivity.this, "Error" +error.toString(), Toast.LENGTH_SHORT).show();
-
+                        Toast.makeText(LoginActivity.this, "Error " +error.toString(), Toast.LENGTH_SHORT).show();
                     }
                 })
         {
