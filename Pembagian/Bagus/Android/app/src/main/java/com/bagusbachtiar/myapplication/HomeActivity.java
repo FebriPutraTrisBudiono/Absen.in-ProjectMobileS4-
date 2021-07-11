@@ -46,9 +46,9 @@ public class HomeActivity extends AppCompatActivity {
     private Button btn_logout, btn_photo_upload;
     SessionManager sessionManager;
     String getId;
-    private static String URL_READ = "http://192.168.1.4/AndroidProject02/PHP/read_detail.php";
-    private static String URL_EDIT = "http://192.168.1.4/AndroidProject02/PHP/edit_detail.php";
-    private static String URL_UPLOAD = "http://192.168.1.4/AndroidProject02/PHP/upload.php";
+    private static String URL_READ = "http://192.168.1.19/AndroidProject02/PHP/read_detail.php";
+    private static String URL_EDIT = "http://192.168.1.19/AndroidProject02/PHP/edit_detail.php";
+    private static String URL_UPLOAD = "http://192.168.1.19/AndroidProject02/PHP/upload.php";
     private Menu action;
     private Bitmap bitmap;
     CircleImageView profile_image;

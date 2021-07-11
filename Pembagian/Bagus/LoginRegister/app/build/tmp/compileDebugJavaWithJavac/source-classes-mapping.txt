@@ -1,8 +1,0 @@
-com/bagusbachtiar/loginregister/MainActivity.java
- com.bagusbachtiar.loginregister.MainActivity
-com/bagusbachtiar/loginregister/BuildConfig.java
- com.bagusbachtiar.loginregister.BuildConfig
-com/bagusbachtiar/loginregister/Login.java
- com.bagusbachtiar.loginregister.Login
- com.bagusbachtiar.loginregister.Login$1
- com.bagusbachtiar.loginregister.Login$1$1
