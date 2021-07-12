@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 11, 2021 at 04:56 PM
+-- Generation Time: Jul 12, 2021 at 11:03 AM
 -- Server version: 10.4.17-MariaDB
 -- PHP Version: 8.0.2
 
@@ -55,7 +55,8 @@ INSERT INTO `absensi` (`id_absen`, `tgl`, `waktu`, `keterangan`, `id_user`, `lon
 (38, '2021-07-11', '16:04:20', 'Masuk', 0, '37.421998333333335, -122.08400000000002'),
 (39, '2021-07-11', '19:54:07', 'Masuk', 0, '37.421998333333335, -122.08400000000002'),
 (40, '2021-07-11', '20:00:25', 'Masuk', 0, ''),
-(41, '2021-07-11', '20:00:41', 'Masuk', 0, '37.421998333333335, -122.08400000000002');
+(41, '2021-07-11', '20:00:41', 'Masuk', 0, '37.421998333333335, -122.08400000000002'),
+(42, '2021-07-12', '11:14:01', 'Masuk', 0, '37.421998333333335, -122.08400000000002');
 
 -- --------------------------------------------------------
 
@@ -81,6 +82,30 @@ INSERT INTO `data_siswa` (`id_mahasiswa`, `nama_mahasiswa`, `jenis_kelamin`, `ke
 (9, 'sada', 'sadasd', 'a', '8888'),
 (10, 'gfhgfh', 'dsfs', 'f', '54646');
 
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `users_table`
+--
+
+CREATE TABLE `users_table` (
+  `id` int(11) NOT NULL,
+  `name` varchar(30) NOT NULL,
+  `email` varchar(50) NOT NULL,
+  `password` text NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `users_table`
+--
+
+INSERT INTO `users_table` (`id`, `name`, `email`, `password`) VALUES
+(1, 'baba2', 'baba@gmail.com', '$2y$10$Wr6BIBqTuVnHXbMzVZsdrO5Lnad3PcoC84JWO2UQ8q8853U7TAh0K'),
+(2, 'bagus', 'bagus@gmail.com', '$2y$10$PHFZ4lRs7P2TbFRTlEIJw.m3WlBsxEvWRgZlw3hhFUZSZ9t/BRj8W'),
+(3, 'bagus', 'gugu@gmail.com', '$2y$10$nbw/NbUcyJyFXxx0d0AbveISTXzw9VkkFgZvpAGgJLllaqhCnGBD.'),
+(4, 'aldi', 'laldi@gmail.com', '$2y$10$mLyvRO1KKjqI4.506cFfZeJr2Ffky0thLFZSDBhcSkUrEIOFnarhe'),
+(5, 'cok', 'cok@gmail.com', '$2y$10$JsE/D1PDbAK7XBDkWKBSF.P6hC3h2xxRsHt5phklH4Chj5.iZAUQC');
+
 --
 -- Indexes for dumped tables
 --
@@ -98,6 +123,12 @@ ALTER TABLE `data_siswa`
   ADD PRIMARY KEY (`id_mahasiswa`);
 
 --
+-- Indexes for table `users_table`
+--
+ALTER TABLE `users_table`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- AUTO_INCREMENT for dumped tables
 --
 
@@ -105,13 +136,19 @@ ALTER TABLE `data_siswa`
 -- AUTO_INCREMENT for table `absensi`
 --
 ALTER TABLE `absensi`
-  MODIFY `id_absen` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=42;
+  MODIFY `id_absen` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=43;
 
 --
 -- AUTO_INCREMENT for table `data_siswa`
 --
 ALTER TABLE `data_siswa`
   MODIFY `id_mahasiswa` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+
+--
+-- AUTO_INCREMENT for table `users_table`
+--
+ALTER TABLE `users_table`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

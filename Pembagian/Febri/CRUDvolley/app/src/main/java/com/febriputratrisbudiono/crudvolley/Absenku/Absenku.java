@@ -42,7 +42,7 @@ public class Absenku extends AppCompatActivity{
 
     void absenku(){
         list = new ArrayList<>();
-        String url = "http://192.168.1.14/volley/absenku.php";
+        String url = "http://192.168.1.5/volley/absenku.php";
         StringRequest request = new StringRequest(Request.Method.POST,
                 url,
                 new Response.Listener<String>() {
