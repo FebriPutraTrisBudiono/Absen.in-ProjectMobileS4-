@@ -14,18 +14,20 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.CRUDVolley"
         android:usesCleartextTraffic="true">
-        <activity android:name=".Dashboard.Dashboard"></activity>
-        <activity android:name=".Absenku.Absenku" />
-        <activity android:name=".Absen.Absen" />
-        <activity android:name=".Anggota.Lihat_data" />
-        <activity android:name=".Anggota.Tampil_data" />
-        <activity android:name=".MainActivity">
+        <activity android:name=".Profile.Profile"></activity>
+        <activity android:name=".Login.Login">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".Dashboard.Dashboard" />
+        <activity android:name=".Absenku.Absenku" />
+        <activity android:name=".Absen.Absen" />
+        <activity android:name=".Anggota.Lihat_data" />
+        <activity android:name=".Anggota.Tampil_data" />
+        <activity android:name=".MainActivity" />
     </application>
 
 </manifest>

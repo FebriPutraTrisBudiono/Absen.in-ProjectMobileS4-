@@ -124,7 +124,7 @@ public class Absen extends AppCompatActivity implements LocationListener{
     }
 
     void input_data() {
-        String url = "http://192.168.1.14/volley/absensi.php";
+        String url = "http://192.168.1.5/volley/absensi.php";
         StringRequest respon = new StringRequest(
                 Request.Method.POST,
                 url,
