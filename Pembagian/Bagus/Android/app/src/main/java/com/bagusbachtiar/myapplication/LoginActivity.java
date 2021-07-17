@@ -109,14 +109,16 @@ public class LoginActivity extends AppCompatActivity {
 
                                 }
 
+                            }else {
+//                            Toast.makeText(LoginActivity.this, "error" +e.toString(), Toast.LENGTH_SHORT).show();
+                                Toast.makeText(LoginActivity.this, "Email/password Salah", Toast.LENGTH_SHORT).show();
+                                btn_login.setVisibility(View.VISIBLE);
+                                loading.setVisibility(View.GONE);
                             }
 
                         } catch (JSONException e) {
-//                            Toast.makeText(LoginActivity.this, "error" +e.toString(), Toast.LENGTH_SHORT).show();
-                            Toast.makeText(LoginActivity.this, "error"+e.toString(), Toast.LENGTH_SHORT).show();
-                            btn_login.setVisibility(View.VISIBLE);
-                            loading.setVisibility(View.GONE);
-                            e.printStackTrace();
+
+
                         }
                     }
                 },
