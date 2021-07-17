@@ -112,19 +112,20 @@ public class LoginActivity extends AppCompatActivity {
                             }
 
                         } catch (JSONException e) {
-                            e.printStackTrace();
-                            loading.setVisibility(View.GONE);
+//                            Toast.makeText(LoginActivity.this, "error" +e.toString(), Toast.LENGTH_SHORT).show();
+                            Toast.makeText(LoginActivity.this, "error"+e.toString(), Toast.LENGTH_SHORT).show();
                             btn_login.setVisibility(View.VISIBLE);
-                            Toast.makeText(LoginActivity.this, "Error " +e.toString(), Toast.LENGTH_SHORT).show();
+                            loading.setVisibility(View.GONE);
+                            e.printStackTrace();
                         }
                     }
                 },
                 new Response.ErrorListener() {
                     @Override
                     public void onErrorResponse(VolleyError error) {
-                        loading.setVisibility(View.GONE);
+                        Toast.makeText(LoginActivity.this, "error" +error.toString(), Toast.LENGTH_SHORT).show();
                         btn_login.setVisibility(View.VISIBLE);
-                        Toast.makeText(LoginActivity.this, "Error " +error.toString(), Toast.LENGTH_SHORT).show();
+                        loading.setVisibility(View.GONE);
                     }
                 })
         {

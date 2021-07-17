@@ -33,7 +33,7 @@ if ($_SERVER['REQUEST_METHOD']=='POST') {
             mysqli_close($conn);
 
         } else {
-
+            
             $result['success'] = "0";
             $result['message'] = "error";
             echo json_encode($result);
