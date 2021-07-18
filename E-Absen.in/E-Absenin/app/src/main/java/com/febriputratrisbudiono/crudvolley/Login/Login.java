@@ -1,4 +1,6 @@
-package com.bagusbachtiar.myapplication;
+package com.febriputratrisbudiono.crudvolley.Login;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -9,8 +11,6 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import com.android.volley.AuthFailureError;
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
@@ -18,6 +18,8 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
+import com.febriputratrisbudiono.crudvolley.MainActivity;
+import com.febriputratrisbudiono.crudvolley.R;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -26,19 +28,18 @@ import org.json.JSONObject;
 import java.util.HashMap;
 import java.util.Map;
 
-public class LoginActivity extends AppCompatActivity {
+public class Login extends AppCompatActivity {
 
     private EditText email, password;
     private Button btn_login;
-    private TextView link_regist;
     private ProgressBar loading;
-    private static String URL_LOGIN = "http://192.168.1.10/AndroidProject02/PHP/login.php";
+    private static String URL_LOGIN = "http://192.168.1.8/volley/login.php";
     SessionManager sessionManager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_login);
+        setContentView(R.layout.login_activity);
 
         sessionManager = new SessionManager(this);
 
@@ -46,7 +47,6 @@ public class LoginActivity extends AppCompatActivity {
         email = findViewById(R.id.email);
         password = findViewById(R.id.password);
         btn_login = findViewById(R.id.btn_login);
-        link_regist = findViewById(R.id.link_regist);
 
         btn_login.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -60,13 +60,6 @@ public class LoginActivity extends AppCompatActivity {
                     email.setError("Please insert email");
                     password.setError("Please insert password");
                 }
-            }
-        });
-
-        link_regist.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivity(new Intent(LoginActivity.this, RegisterActivity.class));
             }
         });
 
@@ -98,7 +91,7 @@ public class LoginActivity extends AppCompatActivity {
 
                                     sessionManager.createSession(name, email, id, id, password);
 
-                                    Intent intent = new Intent(LoginActivity.this, HomeActivity.class);
+                                    Intent intent = new Intent(Login.this, MainActivity.class);
                                     intent.putExtra("name", name);
                                     intent.putExtra("email", email);
                                     startActivity(intent);
@@ -109,25 +102,22 @@ public class LoginActivity extends AppCompatActivity {
 
                                 }
 
-                            }else {
-//                            Toast.makeText(LoginActivity.this, "error" +e.toString(), Toast.LENGTH_SHORT).show();
-                                Toast.makeText(LoginActivity.this, "Email/password Salah", Toast.LENGTH_SHORT).show();
-                                btn_login.setVisibility(View.VISIBLE);
-                                loading.setVisibility(View.GONE);
                             }
 
-                            } catch (JSONException e) {
-
-
-                            }
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+                            Toast.makeText(Login.this, "Error " +e.toString(), Toast.LENGTH_SHORT).show();
+                            loading.setVisibility(View.GONE);
+                            btn_login.setVisibility(View.VISIBLE);
+                        }
                     }
                 },
                 new Response.ErrorListener() {
                     @Override
                     public void onErrorResponse(VolleyError error) {
-                        Toast.makeText(LoginActivity.this, "error" +error.toString(), Toast.LENGTH_SHORT).show();
-                        btn_login.setVisibility(View.VISIBLE);
                         loading.setVisibility(View.GONE);
+                        btn_login.setVisibility(View.VISIBLE);
+                        Toast.makeText(Login.this, "Error " +error.toString(), Toast.LENGTH_SHORT).show();
                     }
                 })
         {
