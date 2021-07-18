@@ -19,6 +19,10 @@ if ($_SERVER['REQUEST_METHOD']=='POST') {
  
              $h['name']        = $row['name'] ;
              $h['email']       = $row['email'] ;
+             $h['nomer']       = $row['nomer'] ;
+             $h['alamat']       = $row['alamat'] ;
+             $h['jabatan']       = $row['jabatan'] ;
+             $h['password']       = $row['password'] ;
  
              array_push($result["read"], $h);
  

@@ -32,7 +32,7 @@ public class LoginActivity extends AppCompatActivity {
     private Button btn_login;
     private TextView link_regist;
     private ProgressBar loading;
-    private static String URL_LOGIN = "http://192.168.1.19/AndroidProject02/PHP/login.php";
+    private static String URL_LOGIN = "http://192.168.1.10/AndroidProject02/PHP/login.php";
     SessionManager sessionManager;
 
     @Override
@@ -96,7 +96,7 @@ public class LoginActivity extends AppCompatActivity {
                                     String email = object.getString("email").trim();
                                     String id = object.getString("id").trim();
 
-                                    sessionManager.createSession(name, email, id);
+                                    sessionManager.createSession(name, email, id, id, password);
 
                                     Intent intent = new Intent(LoginActivity.this, HomeActivity.class);
                                     intent.putExtra("name", name);
@@ -109,22 +109,25 @@ public class LoginActivity extends AppCompatActivity {
 
                                 }
 
+                            }else {
+//                            Toast.makeText(LoginActivity.this, "error" +e.toString(), Toast.LENGTH_SHORT).show();
+                                Toast.makeText(LoginActivity.this, "Email/password Salah", Toast.LENGTH_SHORT).show();
+                                btn_login.setVisibility(View.VISIBLE);
+                                loading.setVisibility(View.GONE);
                             }
 
                         } catch (JSONException e) {
-                            e.printStackTrace();
-                            loading.setVisibility(View.GONE);
-                            btn_login.setVisibility(View.VISIBLE);
-                            Toast.makeText(LoginActivity.this, "Error " +e.toString(), Toast.LENGTH_SHORT).show();
+
+
                         }
                     }
                 },
                 new Response.ErrorListener() {
                     @Override
                     public void onErrorResponse(VolleyError error) {
-                        loading.setVisibility(View.GONE);
+                        Toast.makeText(LoginActivity.this, "error" +error.toString(), Toast.LENGTH_SHORT).show();
                         btn_login.setVisibility(View.VISIBLE);
-                        Toast.makeText(LoginActivity.this, "Error " +error.toString(), Toast.LENGTH_SHORT).show();
+                        loading.setVisibility(View.GONE);
                     }
                 })
         {

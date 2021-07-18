@@ -29,7 +29,7 @@ public class RegisterActivity extends AppCompatActivity {
     private EditText name, email, password, c_password;
     private Button btn_regist;
     private ProgressBar loading;
-    private static String URL_REGIST = "http://192.168.1.19/AndroidProject02/PHP/register.php";
+    private static String URL_REGIST = "http://192.168.1.10/AndroidProject02/PHP/register.php";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -76,8 +76,8 @@ public class RegisterActivity extends AppCompatActivity {
                         } catch (JSONException e) {
                             e.printStackTrace();
                             Toast.makeText(RegisterActivity.this, "Register Error! " + e.toString(), Toast.LENGTH_SHORT).show();
-                            loading.setVisibility(View.GONE);
                             btn_regist.setVisibility(View.VISIBLE);
+                            loading.setVisibility(View.GONE);
                         }
                     }
                 },
@@ -85,8 +85,8 @@ public class RegisterActivity extends AppCompatActivity {
                     @Override
                     public void onErrorResponse(VolleyError error) {
                         Toast.makeText(RegisterActivity.this, "Register Error! " + error.toString(), Toast.LENGTH_SHORT).show();
-                        loading.setVisibility(View.GONE);
                         btn_regist.setVisibility(View.VISIBLE);
+                        loading.setVisibility(View.GONE);
                     }
                 })
 

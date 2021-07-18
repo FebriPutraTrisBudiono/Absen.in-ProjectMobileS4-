@@ -42,13 +42,13 @@ import de.hdodenhof.circleimageview.CircleImageView;
 public class HomeActivity extends AppCompatActivity {
 
     private static final String TAG = HomeActivity.class.getSimpleName(); //getting the info
-    private TextView name, email;
+    private TextView name, email, nomer, alamat, jabatan , password;
     private Button btn_logout, btn_photo_upload;
     SessionManager sessionManager;
     String getId;
-    private static String URL_READ = "http://192.168.1.19/AndroidProject02/PHP/read_detail.php";
-    private static String URL_EDIT = "http://192.168.1.19/AndroidProject02/PHP/edit_detail.php";
-    private static String URL_UPLOAD = "http://192.168.1.19/AndroidProject02/PHP/upload.php";
+    private static String URL_READ = "http://192.168.1.10/AndroidProject02/PHP/read_detail.php";
+    private static String URL_EDIT = "http://192.168.1.10/AndroidProject02/PHP/edit_detail.php";
+    private static String URL_UPLOAD = "http://192.168.1.10/AndroidProject02/PHP/upload.php";
     private Menu action;
     private Bitmap bitmap;
     CircleImageView profile_image;
@@ -63,6 +63,10 @@ public class HomeActivity extends AppCompatActivity {
 
         name = findViewById(R.id.name);
         email = findViewById(R.id.email);
+        nomer = findViewById(R.id.nomer);
+        alamat = findViewById(R.id.alamat);
+        jabatan = findViewById(R.id.jabatan);
+        password = findViewById(R.id.password);
         btn_logout = findViewById(R.id.btn_logout);
         btn_photo_upload = findViewById(R.id.btn_photo);
         profile_image = findViewById(R.id.profile_image);
@@ -113,10 +117,17 @@ public class HomeActivity extends AppCompatActivity {
 
                                     String strName = object.getString("name").trim();
                                     String strEmail = object.getString("email").trim();
+                                    String strNomer = object.getString("nomer").trim();
+                                    String strAlamat = object.getString("alamat").trim();
+                                    String strJabatan = object.getString("jabatan").trim();
+                                    String strPassword = object.getString("password").trim();
 
                                     name.setText(strName);
                                     email.setText(strEmail);
-
+                                    nomer.setText(strNomer);
+                                    alamat.setText(strAlamat);
+                                    jabatan.setText(strJabatan);
+                                    password.setText(strPassword);
                                 }
 
                             }
@@ -175,6 +186,11 @@ public class HomeActivity extends AppCompatActivity {
 
                 name.setFocusableInTouchMode(true);
                 email.setFocusableInTouchMode(true);
+                nomer.setFocusableInTouchMode(true);
+                alamat.setFocusableInTouchMode(true);
+                jabatan.setFocusableInTouchMode(true);
+                password.setFocusableInTouchMode(true);
+
 
                 InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
                 imm.showSoftInput(name, InputMethodManager.SHOW_IMPLICIT);
@@ -193,8 +209,14 @@ public class HomeActivity extends AppCompatActivity {
 
                 name.setFocusableInTouchMode(false);
                 email.setFocusableInTouchMode(false);
+                nomer.setFocusableInTouchMode(false);
+                alamat.setFocusableInTouchMode(false);
+                password.setFocusableInTouchMode(false);
                 name.setFocusable(false);
                 email.setFocusable(false);
+                nomer.setFocusable(false);
+                alamat.setFocusable(false);
+                password.setFocusable(false);
 
                 return true;
 
@@ -210,6 +232,9 @@ public class HomeActivity extends AppCompatActivity {
 
         final String name = this.name.getText().toString().trim();
         final String email = this.email.getText().toString().trim();
+        final String nomer = this.nomer.getText().toString().trim();
+        final String alamat = this.alamat.getText().toString().trim();
+        final String password = this.password.getText().toString().trim();
         final String id = getId;
 
         final ProgressDialog progressDialog = new ProgressDialog(this);
@@ -228,7 +253,7 @@ public class HomeActivity extends AppCompatActivity {
 
                             if (success.equals("1")){
                                 Toast.makeText(HomeActivity.this, "Success!", Toast.LENGTH_SHORT).show();
-                                sessionManager.createSession(name, email, id);
+                                sessionManager.createSession(name, email, nomer, id, password);
                             }
 
                         } catch (JSONException e) {
@@ -252,6 +277,9 @@ public class HomeActivity extends AppCompatActivity {
                 Map<String, String> params = new HashMap<>();
                 params.put("name", name);
                 params.put("email", email);
+                params.put("nomer", nomer);
+                params.put("alamat", alamat);
+                params.put("password", password);
                 params.put("id", id);
                 return params;
             }
