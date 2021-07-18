@@ -11,7 +11,9 @@
         android:id="@+id/toolbar"
         app:title="Riwayat Absen"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:background="@color/colorPrimaryDark"
+        app:titleTextColor="@color/white"/>
 
     <RelativeLayout
         android:background="#DFDFDF"
@@ -20,7 +22,9 @@
 
     <ListView
         android:id="@+id/listview"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:dividerHeight="2dp"
+        android:divider="@color/black"/>
 
 </LinearLayout>
