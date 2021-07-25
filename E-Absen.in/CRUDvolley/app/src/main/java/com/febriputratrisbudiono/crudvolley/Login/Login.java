@@ -33,7 +33,7 @@ public class Login extends AppCompatActivity {
     private EditText email, password;
     private Button btn_login;
     private ProgressBar loading;
-    private static String URL_LOGIN = "http://192.168.1.8/volley/login.php";
+    private static String URL_LOGIN = "http://workshopjti.com/e-absenin/app/Http/Controllers/volley/login.php";
     SessionManager sessionManager;
 
     @Override

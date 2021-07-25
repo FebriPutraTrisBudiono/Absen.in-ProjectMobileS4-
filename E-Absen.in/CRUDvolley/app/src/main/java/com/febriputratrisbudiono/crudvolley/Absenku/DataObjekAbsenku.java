@@ -2,12 +2,12 @@ package com.febriputratrisbudiono.crudvolley.Absenku;
 
 public class DataObjekAbsenku {
 
-    String tgl="", waktu="", keterangan="", id="", longlat="";
-    public DataObjekAbsenku(String tgl, String waktu, String keterangan, String id, String longlat) {
+    String tgl="", waktu="", keterangan="", id_user="", longlat="";
+    public DataObjekAbsenku(String tgl, String waktu, String keterangan, String id_user, String longlat) {
         this.tgl = tgl;
         this.waktu = waktu;
         this.keterangan = keterangan;
-        this.id = id;
+        this.id_user = id_user;
         this.longlat = longlat;
     }
 
@@ -23,8 +23,8 @@ public class DataObjekAbsenku {
         return keterangan;
     }
 
-    public String getId() {
-        return id;
+    public String getId_user() {
+        return id_user;
     }
 
     public String getLonglat() {

@@ -51,14 +51,14 @@ import java.util.Map;
 public class Absen extends AppCompatActivity implements LocationListener{
 
     private static final String TAG = Profile.class.getSimpleName(); //getting the info
-    TextView id, waktu, tgl, text_location, keterangan, created_at, updated_at;
+    TextView id_user, waktu, tgl, text_location, keterangan, created_at, updated_at, id;
     SessionManager sessionManager;
     String getId;
     LocationManager locationManager;
 //    EditText tgl, waktu, keterangan, id_user, longlat;
     Button btn_masuk, btn_pulang;
 
-    private static String URL_READ = "http://192.168.1.8/volley/profile.php";
+    private static String URL_READ = "http://workshopjti.com/e-absenin/app/Http/Controllers/volley/profile.php";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -151,7 +151,7 @@ public class Absen extends AppCompatActivity implements LocationListener{
     }
 
     void input_data() {
-        String url = "http://192.168.1.8/volley/absensi.php";
+        String url = "http://workshopjti.com/e-absenin/app/Http/Controllers/volley/absensi.php";
         StringRequest respon = new StringRequest(
                 Request.Method.POST,
                 url,
@@ -197,7 +197,7 @@ public class Absen extends AppCompatActivity implements LocationListener{
                 form.put("tgl", tgl.getText().toString());
                 form.put("keterangan", keterangan.getText().toString());
                 form.put("longlat", text_location.getText().toString());
-                form.put("id", id.getText().toString());
+                form.put("id_user", id.getText().toString());
                 form.put("created_at", created_at.getText().toString());
                 form.put("updated_at", updated_at.getText().toString());
                 return form;

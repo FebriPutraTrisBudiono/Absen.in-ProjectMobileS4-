@@ -48,9 +48,9 @@ public class Profile extends AppCompatActivity {
     private Button btn_photo_upload;
     SessionManager sessionManager;
     String getId;
-    private static String URL_READ = "http://192.168.1.8/volley/profile.php";
-    private static String URL_EDIT = "http://192.168.1.8/volley/edit_detail.php";
-    private static String URL_UPLOAD = "http://192.168.1.8/volley/upload.php";
+    private static String URL_READ = "http://workshopjti.com/e-absenin/app/Http/Controllers/volley/profile.php";
+    private static String URL_EDIT = "http://workshopjti.com/e-absenin/app/Http/Controllers/volley/edit_detail.php";
+    private static String URL_UPLOAD = "http://workshopjti.com/e-absenin/app/Http/Controllers/volley/upload.php";
     private Menu action;
     private Bitmap bitmap;
     CircleImageView profile_image;

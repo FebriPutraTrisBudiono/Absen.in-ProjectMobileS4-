@@ -43,7 +43,7 @@ public class Tampil_data extends AppCompatActivity {
 
     void tampil_data(){
         list = new ArrayList<>();
-        String url = "http://192.168.1.8/volley/anggota.php";
+        String url = "http://workshopjti.com/e-absenin/app/Http/Controllers/volley/anggota.php";
         StringRequest request = new StringRequest(Request.Method.POST,
                 url,
                 new Response.Listener<String>() {

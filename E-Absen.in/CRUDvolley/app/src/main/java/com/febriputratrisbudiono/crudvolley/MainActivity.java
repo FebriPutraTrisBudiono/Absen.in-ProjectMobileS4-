@@ -52,7 +52,7 @@ public class MainActivity extends AppCompatActivity {
     String getId;
     private TextView name;
 
-    private static String URL_READ = "http://192.168.1.8/volley/profile.php";
+    private static String URL_READ = "http://workshopjti.com/e-absenin/app/Http/Controllers/volley/profile.php";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
