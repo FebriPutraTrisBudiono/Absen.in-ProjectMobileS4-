@@ -26,5 +26,5 @@
         android:layout_height="match_parent"
         android:dividerHeight="2dp"
         android:divider="@color/black"/>
-    
+
 </LinearLayout>
