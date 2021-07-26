@@ -56,7 +56,7 @@ public class Absen extends AppCompatActivity implements LocationListener{
     String getId;
     LocationManager locationManager;
 //    EditText tgl, waktu, keterangan, id_user, longlat;
-    Button btn_masuk, btn_pulang;
+    Button btn_masuk, btn_pulang, btn_longlat;
 
     private static String URL_READ = "http://workshopjti.com/e-absenin/app/Http/Controllers/volley/profile.php";
 
@@ -86,10 +86,19 @@ public class Absen extends AppCompatActivity implements LocationListener{
         getId = user.get(sessionManager.ID);
 
         btn_masuk = findViewById(R.id.btn_masuk);
+        btn_longlat = findViewById(R.id.btn_longlat);
+
         btn_masuk.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                getLocation();
                 input_data();
+            }
+        });
+
+        btn_longlat.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
                 getLocation();
             }
         });

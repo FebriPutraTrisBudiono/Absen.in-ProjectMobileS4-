@@ -71,6 +71,12 @@
         android:orientation="horizontal"
         android:padding="15dp" >
         <Button
+            android:id="@+id/btn_longlat"
+            android:layout_weight="1"
+            android:text="Cek Lokasi"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+        <Button
             android:id="@+id/btn_masuk"
             android:layout_weight="1"
             android:text="Masuk"
